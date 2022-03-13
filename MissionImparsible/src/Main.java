@@ -11,8 +11,6 @@
 */
 class Main {
 
-    Stack s1 = new Stack();
-
     public static void main(String[] args) {
         // These are here as a reference, I will use different test cases.
 
@@ -24,9 +22,6 @@ class Main {
                 "<tag_I_made_up>Professor Carmine!</tag_I_made_up>"
         };
 
-        int i = 0;
-        char c = testCases[i].charAt(0);
-
         for (String test : testCases) {
 
             System.out.println(parse(test));
@@ -35,10 +30,18 @@ class Main {
 
     public static boolean parse(String html) {
 
+        Stack s1 = new Stack();
+
+        int i = 0;
+
+        html = testCases[i].toString();
+
+        char c = html.charAt(0);
+
         // You need to put your code here
         if(c != '/'){
 
-            s1.push(testCases[i]);
+            s1.push(html);
         }
         else {
 
