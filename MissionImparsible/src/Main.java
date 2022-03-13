@@ -26,6 +26,7 @@ class Main {
 
             System.out.println(parse(test));
         }
+
     }
 
     public static boolean parse(String html) {
@@ -33,25 +34,24 @@ class Main {
 
         Stack s1 = new Stack();
 
-        int i = 0;
-
-        html = testCases[i].toString();
-
         char c = html.charAt(0);
 
-        if(c != '/'){
+            if(c != '/'){
 
-            s1.push(html);
-        }
-        else {
+                s1.push(html);
+            }
+            else {
 
-            s1.pop();
-        }
-
-        //if arr[i] does not start with '/' then push, return false. if it starts with '/' then pop, return true
+                s1.pop();
+            }
+        //if arr[i] does not start with '/' then push, return false. if it starts with '/' then pop, return truer
         //compare if the current tag is the same as the previous popped tag
 
-
-        return false;
+        if(s1.isEmpty()){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
