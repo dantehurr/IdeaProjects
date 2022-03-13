@@ -11,10 +11,10 @@
 */
 class Main {
 
+    Stack s1 = new Stack();
+
     public static void main(String[] args) {
         // These are here as a reference, I will use different test cases.
-
-        Stack s1 = new Stack();
 
         String[] testCases = {
                 "<html>\nThis is my awesome webpage!\n</html>\n",
@@ -36,13 +36,13 @@ class Main {
     public static boolean parse(String html) {
 
         // You need to put your code here
-        if(c == '/'){
+        if(c != '/'){
 
-            s1.pop();
+            s1.push(testCases[i]);
         }
         else {
 
-            s1.push(testCases[i]);
+            s1.pop();
         }
 
         //if arr[i] does not start with '/' then push, return false. if it starts with '/' then pop, return true
