@@ -47,11 +47,7 @@ class Main {
         //if arr[i] does not start with '/' then push, return false. if it starts with '/' then pop, return truer
         //compare if the current tag is the same as the previous popped tag
 
-        if(s1.isEmpty()){
-            return true;
-        }
-        else {
-            return false;
-        }
+        
+        return s1.isEmpty();
     }
 }
