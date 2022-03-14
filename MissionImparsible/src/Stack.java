@@ -25,11 +25,12 @@
             head = n;
         }
 
-        public String pop(){
+        public String pop() throws NullPointerException{
 
             if(head == null){
                 return "";
             }
+
             Node n = head;
 
             head = head.next;

@@ -44,40 +44,27 @@ You can go character by character (with a for loop) or use a while loop.
 
         Stack s1 = new Stack();
 
-        int bracketCount = 0;
-        int slashCount = 0;
+        int openLeftIndex = html.indexOf('<');
+        int openRightIndex = html.indexOf('>') + 1;
 
-        //char c = html.charAt(i);
+        int closeLeftIndex = html.indexOf('<', openRightIndex);
+        int closeRightIndex = html.indexOf('>', closeLeftIndex) + 1;
 
-        for(int i = 0; i < html.length(); i++){
+        String openTag = html.substring(openLeftIndex, openRightIndex);
+        String closeTag = html.substring(closeLeftIndex, closeRightIndex);
 
-            char c = html.charAt(i);
+        //s1.push(html);
 
-            char t = html.charAt(0);
+        for(int i = 0; i < closeTag.length(); i++) {
 
-            char p = html.charAt(html.length() - 1);
+            if(closeTag.charAt(1) != '/'){
 
-            if(t == '<' && p == '>') {
-
-                if (c == '/') {
-
-                    //FIXME: remove slash here, compare
-                    s1.pop();
-                    //System.out.println("!");
-                    break;
-                } else {
-
-                    s1.push(html);
-                    //System.out.println("?");
-                    break;
-                }
+                s1.push(html);
             }
-            else{
 
-                break;
-            }
         }
-        //if arr[i] does not start with '/' then push, return false. if it starts with '/' then pop, return truer
+
+        //if arr[i] does not start with '/' then push, return false. if it starts with '/' then pop, return true
         //compare if the current tag is the same as the previous popped tag
 
 
