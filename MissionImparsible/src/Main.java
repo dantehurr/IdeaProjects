@@ -15,11 +15,11 @@ class Main {
         // These are here as a reference, I will use different test cases.
 
         String[] testCases = {
-                "<html>\nThis is my awesome webpage!\n</html>\n",
-                "<html>\n<body>\n<b>CS241</b> is awesome!\n</html>\n</body>\n",
-                "<p><b>Here is some text!</b>",
-                "<p><b><i>Italics and bold!</i>just bold</b></p>",
-                "<tag_I_made_up>Professor Carmine!</tag_I_made_up>"
+                "<html>\nThis is my awesome webpage!\n</html>\n", // valid
+                "<html>\n<body>\n<b>CS241</b> is awesome!\n</html>\n</body>\n", // not valid (tags in the wrong order at the end)
+                "<p><b>Here is some text!</b>", // not valid (code ended before we closed </p>)
+                "<p><b><i>Italics and bold!</i>just bold</b></p>", // valid
+                "<tag_I_made_up>Professor Carmine!</tag_I_made_up>" // valid
         };
 
         for (String test : testCases) {
@@ -29,25 +29,58 @@ class Main {
 
     }
 
+    /*
+    For parse, you have a lot to do there. There are a couple of ways:
+
+You can go character by character (with a for loop) or use a while loop.
+- Look for < and >
+- You can use substring to get the tag
+- If it DOES NOT have a / then push it onto the stack
+- If it does, then remove the /, pop from the stack and compare the one from the stack with the one you just made.
+     */
+
     public static boolean parse(String html) {
         // You need to put your code here
 
         Stack s1 = new Stack();
 
-        char c = html.charAt(0);
+        int bracketCount = 0;
+        int slashCount = 0;
 
-            if(c != '/'){
+        //char c = html.charAt(i);
 
-                s1.push(html);
+        for(int i = 0; i < html.length(); i++){
+
+            char c = html.charAt(i);
+
+            char t = html.charAt(0);
+
+            char p = html.charAt(html.length() - 1);
+
+            if(t == '<' && p == '>') {
+
+                if (c == '/') {
+
+                    //FIXME: remove slash here, compare
+                    s1.pop();
+                    //System.out.println("!");
+                    break;
+                } else {
+
+                    s1.push(html);
+                    //System.out.println("?");
+                    break;
+                }
             }
-            else {
+            else{
 
-                s1.pop();
+                break;
             }
+        }
         //if arr[i] does not start with '/' then push, return false. if it starts with '/' then pop, return truer
         //compare if the current tag is the same as the previous popped tag
 
-        
+
         return s1.isEmpty();
     }
 }

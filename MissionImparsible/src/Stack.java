@@ -28,7 +28,7 @@
         public String pop(){
 
             if(head == null){
-                return null;
+                return "";
             }
             Node n = head;
 
