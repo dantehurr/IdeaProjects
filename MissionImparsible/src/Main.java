@@ -3,8 +3,7 @@
   Pace Email: dh51481n@pace.edu
 
   Is parse an online algorithm? Why or why not?
-    -I think parse would be an offline algorithm because you would have to feed the information
-       in order for it to work.
+    -I think parse would be an online algorithm because once information is being fed, it is not recording after reading.
 
   -Given N tags. What is the runtime of parse? Why?
         Given N tags the runtime of parse is O(n) because parse will have to pass through every tag.
@@ -53,8 +52,6 @@ You can go character by character (with a for loop) or use a while loop.
         String openTag = html.substring(openLeftIndex, openRightIndex);
         String closeTag = html.substring(closeLeftIndex, closeRightIndex);
 
-        //s1.push(html);
-
         for(int i = 0; i < closeTag.length(); i++) {
 
             if(closeTag.charAt(1) != '/'){
@@ -63,10 +60,6 @@ You can go character by character (with a for loop) or use a while loop.
             }
 
         }
-
-        //if arr[i] does not start with '/' then push, return false. if it starts with '/' then pop, return true
-        //compare if the current tag is the same as the previous popped tag
-
 
         return s1.isEmpty();
     }
