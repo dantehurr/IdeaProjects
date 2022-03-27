@@ -41,8 +41,8 @@ You may refer to the book, your notes or this Wikipedia article: https://en.wiki
 
         int n = a.size();
 
-        for(int i = 0; i < n - 1; i++){
-            for(int j = 0; j < n - i - 1; j++){
+        for(int i = 0; i < n - 1; i++){ //loop through the list
+            for(int j = 0; j < n - i - 1; j++){ //keep track of the placement
                 if(a.get(j).compareTo(a.get(j + 1)) == 1){ //FIXME: //0 = equal, -1 = less, 1 = more
                     Collections.swap(a, j, j + 1);
                 }
@@ -58,7 +58,7 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
         int j;
 
         for(int n = 1; n < a.size(); n++){
-            for(j = n; j > 0 && a.get(n).compareTo(a.get(j -1)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
+            for(j = n; j > 0 && a.get(n).compareTo(a.get(j -1)) == -1; j--){//FIXME: //0 = equal, -1 = less, 1 = more
                 Collections.swap(a, j, j + 1);
             }
             Collections.swap(a, j, n);
