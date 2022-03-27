@@ -11,7 +11,7 @@ example format: CS 241: Data Structures and Algorithms.
 
 public class Course implements Comparable<Course>{
 
-    String type, name;
+    String type, name, myClass;
     int num;
 
     Course(String course, int number, String title){
@@ -19,16 +19,21 @@ public class Course implements Comparable<Course>{
         this.type = course;
         this.num = number;
         this.name = title;
+
+        this.myClass = course + " " + number + " " + title;
     }
 
     public int compareTo(Course aCourse){
 
-        return Integer.compare(this.num, aCourse.num);
+
+        //return Integer.compare(this.num, aCourse.num);
+        //return name.compareTo(aCourse.name);
+        return myClass.compareTo(aCourse.myClass);
     }
 
     public String toString(){
 
-        return;
+        return myClass; //determines what prints
     }
 
 }
