@@ -25,9 +25,6 @@ public class Course implements Comparable<Course>{
 
     public int compareTo(Course aCourse){
 
-
-        //return Integer.compare(this.num, aCourse.num);
-        //return name.compareTo(aCourse.name);
         return myClass.compareTo(aCourse.myClass);
     }
 

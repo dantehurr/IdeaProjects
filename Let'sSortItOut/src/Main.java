@@ -43,29 +43,13 @@ You may refer to the book, your notes or this Wikipedia article: https://en.wiki
 
         for(int i = 0; i < n - 1; i++){
             for(int j = 0; j < n - i - 1; j++){
-                if(a.get(j).compareTo(a.get(j + 1)) == 1){ //FIXME: try using 0 if this doesn't work
+                if(a.get(j).compareTo(a.get(j + 1)) == 1){ //FIXME: //0 = equal, -1 = less, 1 = more
                     Collections.swap(a, j, j + 1);
                 }
             }
         }
-/*
-+++++++++Simple Bubble Sort+++++++++
-
-void bubbleSort(int arr[]){
-
-        int n = arr.length;
-        for (int i = 0; i < n-1; i++)
-            for (int j = 0; j < n-i-1; j++)
-                if (arr[j] > arr[j+1]){
-                    // swap arr[j+1] and arr[j]
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
-                }
     }
- */
 
-    }
     public static void insertionSort(ArrayList<Course> a){
 /*
 Write a method called insertionSort that takes an ArrayList<Course> and performs the insertion sort. You may refer to the book, your notes or this Wikipedia article: https://en.wikipedia.org/wiki/Insertion_sort
@@ -74,54 +58,31 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
         int j;
 
         for(int n = 1; n < a.size(); n++){
-            Course temp = a.get(n);
-            for(j = n; j > 0 && temp.compareTo(a.get(j -1)) < 0; j--){
+            for(j = n; j > 0 && a.get(n).compareTo(a.get(j -1)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
                 Collections.swap(a, j, j + 1);
             }
             Collections.swap(a, j, n);
         }
-
-        /*
-        +++++++++Simple Insertion Sort+++++++++
-        @param a an array of Comparable items.
-
-        public static <AnyType extends Comparable<? super AnyType>> void insertionSort(AnyType [] a){
-            int j;
-            for(int p = 1; p < a.length; p++){
-                AnyType tmp = a[p];
-                for(j = p; j > 0 && tmp.compareTo(a[j - 1]) < 0; j--){
-                    a[j] = a[j - 1];
-                }
-            a[j] =  tmp;
-            }
-        }
-         */
     }
+
     public static void selectionSort(ArrayList<Course> a){
 /*
 Write a method called selectionSort that takes an ArrayList<Course> and performs the selection sort. You may refer to the book, your notes or this Wikipedia article: https://en.wikipedia.org/wiki/Selection_sort
  */
-/*
-+++++++++Simple Selection Sort+++++++++
-void sort(int arr[]){
-        int n = arr.length;
 
-        // One by one move boundary of unsorted subarray
-        for (int i = 0; i < n-1; i++){
-            // Find the minimum element in unsorted array
-            int min_idx = i;
-            for (int j = i+1; j < n; j++)
-                if (arr[j] < arr[min_idx])
-                    min_idx = j;
+        int n = a.size();
 
-            // Swap the found minimum element with the first
-            // element
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[i];
-            arr[i] = temp;
+        for(int i = 0; i < n - 1; i++){
+            int minIndex = i;
+
+            for(int j = i + 1; j < n; j++){
+                if(a.get(j).compareTo(a.get(minIndex)) == -1){//FIXME: //0 = equal, -1 = less, 1 = more
+                    minIndex = j;
+                }
+            }
+
+            Collections.swap(a, minIndex, i);
         }
-    }
- */
     }
 
     public static void main(String[] args) {
@@ -140,15 +101,19 @@ void sort(int arr[]){
 
         Collections.sort(list);
 
-        System.out.println("Alpha Sort:");
+        System.out.println("\nAlpha:\n");
         print(list);
 
-        System.out.println("Bubble Sort:");
-        bubbleSort(list); //FIXME: not sorting
+        System.out.println("\nBubble Sort:\n");
+        bubbleSort(list);
         print(list);
 
-        System.out.println("Insertion Sort:");
-        insertionSort(list); //FIXME: not sorting
+        System.out.println("\nInsertion Sort:\n");
+        insertionSort(list);
+        print(list);
+
+        System.out.println("\nSelection Sort:\n");
+        selectionSort(list);
         print(list);
 
 
