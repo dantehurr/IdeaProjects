@@ -58,7 +58,7 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
         int j;
 
         for(int n = 1; n < a.size() - 1; n++){
-            for(j = n; j > 0 && a.get(j + 1).compareTo(a.get(j)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
+            for(j = n; j > 0 && a.get(n).compareTo(a.get(j + 1)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
                 Collections.swap(a, j, j + 1);
             }
             Collections.swap(a, j, n);
