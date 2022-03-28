@@ -57,8 +57,8 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
 
         int j;
 
-        for(int n = 1; n < a.size(); n++){
-            for(j = n; j > 0 && a.get(n).compareTo(a.get(j - 1)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
+        for(int n = 1; n < a.size() - 1; n++){
+            for(j = n; j > 0 && a.get(j + 1).compareTo(a.get(j)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
                 Collections.swap(a, j, j + 1);
             }
             Collections.swap(a, j, n);
@@ -99,8 +99,6 @@ Write a method called selectionSort that takes an ArrayList<Course> and performs
         list.add(c3);
         list.add(c4);
 
-        //Collections.sort(list);
-
         System.out.println("\nAlpha:\n");
         print(list);
 
@@ -109,7 +107,7 @@ Write a method called selectionSort that takes an ArrayList<Course> and performs
         print(list);*/
 
         System.out.println("\nInsertion Sort:\n");
-        insertionSort(list); //FIXME: out of bounds exception
+        insertionSort(list);
         print(list);
 
         /*System.out.println("\nSelection Sort:\n");
