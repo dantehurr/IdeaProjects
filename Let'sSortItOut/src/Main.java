@@ -43,7 +43,7 @@ You may refer to the book, your notes or this Wikipedia article: https://en.wiki
 
         for(int i = 0; i < n - 1; i++){ //loop through the list
             for(int j = 0; j < n - i - 1; j++){ //keep track of the placement
-                if(a.get(j).compareTo(a.get(j + 1)) == 1){ //FIXME: //0 = equal, -1 = less, 1 = more
+                if(a.get(j).compareTo(a.get(j + 1)) > 0){ //FIXME: //0 = equal, -1 = less, 1 = more
                     Collections.swap(a, j, j + 1);
                 }
             }
@@ -58,7 +58,7 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
         int j;
 
         for(int n = 1; n < a.size(); n++){
-            for(j = n; j > 0 && a.get(n).compareTo(a.get(j -1)) == -1; j--){//FIXME: //0 = equal, -1 = less, 1 = more
+            for(j = n; j > 0 && a.get(n).compareTo(a.get(j - 1)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
                 Collections.swap(a, j, j + 1);
             }
             Collections.swap(a, j, n);
@@ -76,7 +76,7 @@ Write a method called selectionSort that takes an ArrayList<Course> and performs
             int minIndex = i;
 
             for(int j = i + 1; j < n; j++){
-                if(a.get(j).compareTo(a.get(minIndex)) == -1){//FIXME: //0 = equal, -1 = less, 1 = more
+                if(a.get(j).compareTo(a.get(minIndex)) < 0){//FIXME: //0 = equal, -1 = less, 1 = more
                     minIndex = j;
                 }
             }
@@ -99,22 +99,22 @@ Write a method called selectionSort that takes an ArrayList<Course> and performs
         list.add(c3);
         list.add(c4);
 
-        Collections.sort(list);
+        //Collections.sort(list);
 
         System.out.println("\nAlpha:\n");
         print(list);
 
-        System.out.println("\nBubble Sort:\n");
+        /*System.out.println("\nBubble Sort:\n");
         bubbleSort(list);
-        print(list);
+        print(list);*/
 
         System.out.println("\nInsertion Sort:\n");
-        insertionSort(list);
+        insertionSort(list); //FIXME: out of bounds exception
         print(list);
 
-        System.out.println("\nSelection Sort:\n");
+        /*System.out.println("\nSelection Sort:\n");
         selectionSort(list);
-        print(list);
+        print(list);*/
 
 
     }
