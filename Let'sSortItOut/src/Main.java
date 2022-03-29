@@ -5,15 +5,22 @@
 
   Bubble Sort:
   What is the worst case big O and what kind of input would cause that?
+    -Worst case would be O(n^2) if the list required n * n passes to be in the sorted order.
   What is the best case big O and what kind of input would cause that?
+    -Best case would be O(n) if the list was already in the sorted order.
 
   Insertion Sort:
   What is the worst case big O and what kind of input would cause that?
+    -Worse case would be O(n^2) if the algorithm needed to reverse every item before being sorted.
   What is the best case big O and what kind of input would cause that?
+    -Best case would still be O(n) because the list could already be in the sorted order.
 
   Selection Sort:
   What is the worst case big O and what kind of input would cause that?
+    -Worst case is also O(n^2) because the only option for this type of sort is to pass over each item 'n'
+        once every time the list is iterated through resulting in n * n passes.
   What is the best case big O and what kind of input would cause that?
+    -Best case would be O(n^2) to sort the list after only n passes over n items.
 */
 
 import java.util.ArrayList;
