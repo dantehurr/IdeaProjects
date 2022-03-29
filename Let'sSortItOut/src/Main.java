@@ -56,17 +56,11 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
  */
 
         int j;
-        int t = 0;
 
         for(int n = 1; n < a.size() - 1; n++){
             for(j = n; j > 0 && a.get(n).compareTo(a.get(j + 1)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
                 Collections.swap(a, j, j + 1);
-                System.out.println("NNNNNNNN");
-                print(a);
             }
-            //System.out.println("J " + a.get(j));
-            //System.out.println("N " + a.get(n));
-            System.out.println("+++++++++");
             Collections.swap(a, j, n);
         }
     }
