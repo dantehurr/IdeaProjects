@@ -61,58 +61,17 @@ You may refer to the book, your notes or this Wikipedia article: https://en.wiki
 /*
 Write a method called insertionSort that takes an ArrayList<Course> and performs the insertion sort. You may refer to the book, your notes or this Wikipedia article: https://en.wikipedia.org/wiki/Insertion_sort
  */
-        int count = a.size() - 1;
-        int i = 0;
-        int iteration = 0;
+        int n = a.size() - 1;
+        int i;
 
-        for(int t = 0; t < count; t++){
-            while(iteration < count && i < count){
-
-                for(int j = 0; j < count; j++) {
+        for(int t = 0; t < n; t++){
+                for(i = 0; i < n; i++) {
                     if (a.get(i).compareTo(a.get(i + 1)) > 0) {
                         Collections.swap(a, i, i + 1);
                     }
-                    print(a);
-                    System.out.println("------------------------------");
-                    i++;
                 }
-                iteration++;
-            }
             i = 0;
-            iteration = 0;
-            System.out.println("+++++++++++++++++++++++++++++++");
         }
-
-
-
-
-/*        for(int i = 0; i < count; i++){
-
-            for(int j = count; j > 0; j--){
-                if(a.get(i).compareTo(a.get(i + 1)) > 0){
-                    Collections.swap(a, i, i + 1);
-                    print(a);
-                    System.out.println("------------------------------");
-                }
-            }
-            System.out.println("Loop: " + i);
-            //Collections.swap(a, i, count);
-        }*/
-
-
-        /*int j;
-        int t = a.size() - 1;
-
-        for(int n = 1; n < a.size() - 1; n++){
-            for(j = t; j > 0 && a.get(n - 1).compareTo(a.get(n)) < 0; j--){//FIXME: //0 = equal, -1 = less, 1 = more
-                //Collections.swap(a, j, j + 1);
-                System.out.println("Testing: " + a.get(n - 1) + " vs. " + a.get(n));
-                Collections.swap(a, n - 1, n);
-                print(a);
-                System.out.println("-----------------------------------------------");
-            }
-            //Collections.swap(a, t, j);
-        }*/
     }
 
     public static void selectionSort(ArrayList<Course> a){
