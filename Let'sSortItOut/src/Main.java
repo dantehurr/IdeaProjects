@@ -61,18 +61,20 @@ You may refer to the book, your notes or this Wikipedia article: https://en.wiki
 /*
 Write a method called insertionSort that takes an ArrayList<Course> and performs the insertion sort. You may refer to the book, your notes or this Wikipedia article: https://en.wikipedia.org/wiki/Insertion_sort
  */
-        int n = a.size() - 1;
-        int i;
-
-        for(int t = 0; t < n; t++){
-                for(i = 0; i < n; i++) {
-                    if (a.get(i).compareTo(a.get(i + 1)) > 0) {
-                        Collections.swap(a, i, i + 1);
-                    }
+    int i = 1;
+            while(i < a.size() - 1){
+                Course x = a.get(i);
+                int j = i - 1;
+                while(j >= 0 && a.get(j).compareTo(x) > 0){
+                    Collections.swap(a, j, j + 1);
+                    j--;
                 }
-            i = 0;
-        }
+                Collections.swap(a, j + 1, i);
+                i++;
+            }
     }
+
+    
 
     public static void selectionSort(ArrayList<Course> a){
 /*
