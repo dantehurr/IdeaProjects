@@ -61,7 +61,7 @@ You may refer to the book, your notes or this Wikipedia article: https://en.wiki
 /*
 Write a method called insertionSort that takes an ArrayList<Course> and performs the insertion sort. You may refer to the book, your notes or this Wikipedia article: https://en.wikipedia.org/wiki/Insertion_sort
  */
-    int i = 1;
+/*    int i = 1;
             while(i < a.size() - 1){
                 Course x = a.get(i);
                 int j = i - 1;
@@ -72,7 +72,39 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
                 Collections.swap(a, j + 1, i);
                 i++;
             }
-    }
+    }*/
+        int j;
+
+        for(int n = 1; n < a.size() - 1; n++) {
+            for (j = n; j > 0 && a.get(j + 1).compareTo(a.get(j)) < 0; j--) {//FIXME: //0 = equal, -1 = less, 1 = more
+                for (j = n; j > 0 && a.get(n).compareTo(a.get(j + 1)) < 0; j--) {//FIXME: //0 = equal, -1 = less, 1 = more
+                    Collections.swap(a, j, j + 1);
+                }
+                Collections.swap(a, j, n);
+            }
+        }
+
+/*    int i = 1;
+
+        while(i < a.size() - 1){
+        Course x = a.get(i);
+        int j = i + 1;
+        while(j >= 0 && a.get(j).compareTo(x) > 0 && j < a.size() - 1){
+            System.out.println("Comparing: "+ a.get(j) + " vs. " + x + "\n");
+            Collections.swap(a,j + 1, j);
+            print(a);
+            System.out.println("------------------------------------------");
+            j++;
+        }
+        Course c = a.get(j + 1);
+        System.out.println("Swapping: " + a.get(j + 1) + " && " + a.get(i) + "\n");
+        Collections.swap(a, j + 1, i);
+        print(a);
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
+        //c = x;
+        i++;
+    }*/
+}
 
 
 
@@ -80,30 +112,22 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
 /*
 Write a method called selectionSort that takes an ArrayList<Course> and performs the selection sort. You may refer to the book, your notes or this Wikipedia article: https://en.wikipedia.org/wiki/Selection_sort
  */
+        int n = a.size();
 
-        for (int i = 1; i < a.size(); i++) {
+        for(int i = 0; i < n - 1; i++){
+            int minIndex = i;
 
-            Course key = a.get(i);
-
-            for (int j = i - 1; j >= 0; j--) {
-                if (key.compareTo(a.get(j)) < 0) {
-                    // Shifting Each Element to its right as key is less than the existing element at current index
-                    a.set(j + 1, a.get(j));
-
-                    // Special case scenario when all elements are less than key, so placing key value at 0th Position
-                    if (j == 0) {
-                        a.set(0, key);
-                    }
-                } else {
-                    // Putting Key value after element at current index as Key value is no more less than the existing element at current index
-                    a.set(j + 1, key);
-                    break; // You need to break the loop to save un necessary iteration
+            for(int j = i + 1; j < n; j++){
+                if(a.get(j).compareTo(a.get(minIndex)) < 0){//FIXME: //0 = equal, -1 = less, 1 = more
+                    minIndex = j;
                 }
             }
+
+            Collections.swap(a, minIndex, i);
         }
     }
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
 
         ArrayList<Course> list = new ArrayList<Course>();
 
