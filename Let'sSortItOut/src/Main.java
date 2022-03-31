@@ -74,29 +74,36 @@ Write a method called insertionSort that takes an ArrayList<Course> and performs
             }
     }
 
-    
 
-    public static void selectionSort(ArrayList<Course> a){
+
+    public static void selectionSort(ArrayList<Course> a) {
 /*
 Write a method called selectionSort that takes an ArrayList<Course> and performs the selection sort. You may refer to the book, your notes or this Wikipedia article: https://en.wikipedia.org/wiki/Selection_sort
  */
 
-        int n = a.size();
+        for (int i = 1; i < a.size(); i++) {
 
-        for(int i = 0; i < n - 1; i++){
-            int minIndex = i;
+            Course key = a.get(i);
 
-            for(int j = i + 1; j < n; j++){
-                if(a.get(j).compareTo(a.get(minIndex)) < 0){//FIXME: //0 = equal, -1 = less, 1 = more
-                    minIndex = j;
+            for (int j = i - 1; j >= 0; j--) {
+                if (key.compareTo(a.get(j)) < 0) {
+                    // Shifting Each Element to its right as key is less than the existing element at current index
+                    a.set(j + 1, a.get(j));
+
+                    // Special case scenario when all elements are less than key, so placing key value at 0th Position
+                    if (j == 0) {
+                        a.set(0, key);
+                    }
+                } else {
+                    // Putting Key value after element at current index as Key value is no more less than the existing element at current index
+                    a.set(j + 1, key);
+                    break; // You need to break the loop to save un necessary iteration
                 }
             }
-
-            Collections.swap(a, minIndex, i);
         }
     }
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
         ArrayList<Course> list = new ArrayList<Course>();
 
