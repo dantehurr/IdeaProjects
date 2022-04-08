@@ -61,49 +61,17 @@ You may refer to the book, your notes or this Wikipedia article: https://en.wiki
 /*
 Write a method called insertionSort that takes an ArrayList<Course> and performs the insertion sort. You may refer to the book, your notes or this Wikipedia article: https://en.wikipedia.org/wiki/Insertion_sort
  */
-/*    int i = 1;
-            while(i < a.size() - 1){
-                Course x = a.get(i);
-                int j = i - 1;
-                while(j >= 0 && a.get(j).compareTo(x) > 0){
-                    Collections.swap(a, j, j + 1);
-                    j--;
-                }
-                Collections.swap(a, j + 1, i);
-                i++;
+        int i = 1;
+        while(i < a.size()){
+            Course x = a.get(i);
+            int j = i - 1;
+            while(j >= 0 && x.compareTo(a.get(j)) < 0){
+                a.set(j + 1, a.get(j));
+                j--;
             }
-    }*/
-        int j;
-
-        for(int n = 1; n < a.size() - 1; n++) {
-            for (j = n; j > 0 && a.get(j + 1).compareTo(a.get(j)) < 0; j--) {//FIXME: //0 = equal, -1 = less, 1 = more
-                for (j = n; j > 0 && a.get(n).compareTo(a.get(j + 1)) < 0; j--) {//FIXME: //0 = equal, -1 = less, 1 = more
-                    Collections.swap(a, j, j + 1);
-                }
-                Collections.swap(a, j, n);
-            }
+            a.set(j + 1, x);
+            i++;
         }
-
-/*    int i = 1;
-
-        while(i < a.size() - 1){
-        Course x = a.get(i);
-        int j = i + 1;
-        while(j >= 0 && a.get(j).compareTo(x) > 0 && j < a.size() - 1){
-            System.out.println("Comparing: "+ a.get(j) + " vs. " + x + "\n");
-            Collections.swap(a,j + 1, j);
-            print(a);
-            System.out.println("------------------------------------------");
-            j++;
-        }
-        Course c = a.get(j + 1);
-        System.out.println("Swapping: " + a.get(j + 1) + " && " + a.get(i) + "\n");
-        Collections.swap(a, j + 1, i);
-        print(a);
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
-        //c = x;
-        i++;
-    }*/
 }
 
 
@@ -129,36 +97,58 @@ Write a method called selectionSort that takes an ArrayList<Course> and performs
 
     public static void main(String[] args) {
 
-        ArrayList<Course> list = new ArrayList<Course>();
+        ArrayList<Course> list1 = new ArrayList<Course>();
+        ArrayList<Course> list2 = new ArrayList<Course>();
+        ArrayList<Course> list3 = new ArrayList<Course>();
 
         Course c1 = new Course("CS", 241, "Data Structures and Algorithms");
         Course c2 = new Course("ART", 240, "Sculpture I");
         Course c3 = new Course("CS", 232, "Computer Organization");
-        Course c4 = new Course("ENG", 120, "Critical Writing");
+        Course c4 = new Course("MAT", 131, "Calculus I");
         Course c5 = new Course("ART", 122, "Painting I");
-        Course c6 = new Course("CS", 271, "Fundamentals of UNIX and C Programming");
+        Course c6 = new Course("MAT", 234, "Statistics and Probability");
+        Course c7 = new Course("BIO", 101, "General Biology I");
+        Course c8 = new Course("PHY", 101, "General Physics I");
+        Course c9 = new Course("SPA", 101, "Elementary Spanish");
+        Course c10 = new Course("ENG", 120, "Critical Writing");
+        Course c11 = new Course("MAT", 132, "Calculus II");
+        Course c12 = new Course("CS", 271, "Fundamentals of UNIX and C Programming");
 
-        list.add(c1);
-        list.add(c2);
-        list.add(c3);
-        list.add(c4);
-        list.add(c5);
-        list.add(c6);
+
+        list1.add(c1);
+        list2.add(c2);
+        list3.add(c3);
+        list1.add(c4);
+        list2.add(c5);
+        list3.add(c6);
+        list1.add(c7);
+        list2.add(c8);
+        list3.add(c9);
+        list1.add(c10);
+        list2.add(c11);
+        list3.add(c12);
+
 
         System.out.println("\nAlpha:\n");
-        print(list);
+        print(list1);
 
-        /*System.out.println("\nBubble Sort:\n");
-        bubbleSort(list);
-        print(list);*/
+        System.out.println("\nBubble Sort:\n");
+        bubbleSort(list1);
+        print(list1);
+
+        System.out.println("\nAlpha:\n");
+        print(list2);
 
         System.out.println("\nInsertion Sort:\n");
-        insertionSort(list);
-        print(list);
+        insertionSort(list2);
+        print(list2);
 
-        /*System.out.println("\nSelection Sort:\n");
-        selectionSort(list);
-        print(list);*/
+        System.out.println("\nAlpha:\n");
+        print(list3);
+
+        System.out.println("\nSelection Sort:\n");
+        selectionSort(list3);
+        print(list3);
 
 
     }
