@@ -27,7 +27,7 @@ public class BucketManager {
     public void sort(){
 //CALL ALL BUCKETS AND SORT
         for(int i = 0; i < SIZE; i++){
-            buckets[i].sort();
+            buckets[i].sort();// FIXME: Stack Overflow
         }
     }
 }

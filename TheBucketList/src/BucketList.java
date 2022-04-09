@@ -1,8 +1,9 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
-public class BucketList implements Comparator{
+public class BucketList {
 
     ArrayList list;
 
@@ -17,7 +18,10 @@ public class BucketList implements Comparator{
         return obj1.compareToIgnoreCase(obj2);
     }
 
+    public String toString(){
 
+        return list.toString(); //determines what prints
+    }
 
 
     public void add(String data){
@@ -27,22 +31,22 @@ public class BucketList implements Comparator{
 
     public void sort(){
 //MERGE SORT
-        mergeSort(list, 0, list.size());
+        mergeSort(list, 0, list.size() - 1); // FIXME: Stack Overflow
     }
 
-    public static void mergeSort(ArrayList list, int start, int end){
+    public void mergeSort(ArrayList list, int start, int end){
         if(start > end){
             return;
         }
 
         int mid = start + end / 2;
 
-        mergeSort(list, start, mid);
+        mergeSort(list, start, mid); // FIXME: Stack Overflow
         mergeSort(list, mid + 1, end);
         merge(list, start, mid, end);
     }
 
-    public static void merge(ArrayList list, int start, int mid, int end){
+    public void merge(ArrayList list, int start, int mid, int end){
 
         ArrayList temp = new ArrayList();
 
@@ -51,30 +55,30 @@ public class BucketList implements Comparator{
         int k = 0;
 
         while(i <= mid && j <= end){
-            if(list.get(i).compare(list.get(i), list.get(j)) < 0){ //FIXME: I want to implement Comparable to use here but not sure
-                temp.get(k) = list.get(i);//FIXME: all of these variable assignments need to be fixed(46, 51, 57, 62, 68)
+            if(compare(list.get(i).toString(), list.get(j).toString()) < 0){
+                temp.set(k, list.get(i));
                 i++;
                 k++;
             }
             else{
-                temp.get(k) = list.get(j);
+                temp.set(k, list.get(j));
                 j++;
                 k++;
             }
         }
         while(i <= mid){
-            temp.get(k) = list.get(i);
+            temp.set(k, list.get(i));
             i++;
             k++;
         }
         while(j <= end){
-            temp.get(k) = list.get(j);
+            temp.set(k, list.get(j));
             j++;
             k++;
         }
 
         for(int p = 0; i < temp.size(); p++){
-            list.get(p + start) = temp.get(p);
+            list.set(p + start, temp.get(p));
         }
     }
 

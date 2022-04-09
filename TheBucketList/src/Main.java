@@ -22,6 +22,6 @@ class Main {
         bm.add("Become a starship captain.");
         bm.print();
         System.out.println("----");
-        //bm.sort();
+        bm.sort();
         bm.print();
     } }
