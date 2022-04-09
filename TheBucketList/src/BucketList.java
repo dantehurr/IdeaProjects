@@ -1,7 +1,8 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class BucketList{
+public class BucketList implements Comparator{
 
     ArrayList list;
 
@@ -10,6 +11,15 @@ public class BucketList{
 
 
     }
+
+    public int compare(String obj1, String obj2){
+
+        return obj1.compareToIgnoreCase(obj2);
+    }
+
+
+
+
     public void add(String data){
 //CALL ARRAYLIST ADD
         list.add(data);
@@ -17,31 +27,10 @@ public class BucketList{
 
     public void sort(){
 //MERGE SORT
-
+        mergeSort(list, 0, list.size());
     }
 
-    public int compareToIgnoreCase(String data1, String data2){
-        int i = 0;
-        int size = data1.length();
-
-        char c1 = data1.charAt(i);
-        char c2 = data2.charAt(i);
-        int b1 = (int)c1;
-        int b2 = (int)c2;
-
-        if(b1 < b2){
-            return -1;
-        }
-        else if(b2 > b1){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-
-    }
-
-    public static void mergeSort(BucketList[] list, int start, int end){
+    public static void mergeSort(ArrayList list, int start, int end){
         if(start > end){
             return;
         }
@@ -53,7 +42,7 @@ public class BucketList{
         merge(list, start, mid, end);
     }
 
-    public static void merge(BucketList[] list, int start, int mid, int end){
+    public static void merge(ArrayList list, int start, int mid, int end){
 
         ArrayList temp = new ArrayList();
 
@@ -62,8 +51,8 @@ public class BucketList{
         int k = 0;
 
         while(i <= mid && j <= end){
-            if(list.get(i).compareToIgnoreCase(list.get(j)) < 0){
-                temp.get(k) = list.get(i);
+            if(list.get(i).compare(list.get(i), list.get(j)) < 0){ //FIXME: I want to implement Comparable to use here but not sure
+                temp.get(k) = list.get(i);//FIXME: all of these variable assignments need to be fixed(46, 51, 57, 62, 68)
                 i++;
                 k++;
             }

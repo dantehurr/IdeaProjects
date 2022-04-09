@@ -26,8 +26,8 @@ public class BucketManager {
     }
     public void sort(){
 //CALL ALL BUCKETS AND SORT
-        int start = 0;
-        int end = 0;
-        BucketList.mergeSort(buckets, start, end);
+        for(int i = 0; i < SIZE; i++){
+            buckets[i].sort();
+        }
     }
 }
