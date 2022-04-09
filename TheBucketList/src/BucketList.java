@@ -9,8 +9,6 @@ public class BucketList {
 
     public BucketList(){
         list = new ArrayList();
-
-
     }
 
     public int compare(String obj1, String obj2){
@@ -35,7 +33,7 @@ public class BucketList {
     }
 
     public void mergeSort(ArrayList list, int start, int end){
-        if(start > end){
+        if(start >= end){
             return;
         }
 
