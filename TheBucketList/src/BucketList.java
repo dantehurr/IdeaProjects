@@ -54,29 +54,34 @@ public class BucketList {
 
         while(i <= mid && j <= end){
             if(compare(list.get(i).toString(), list.get(j).toString()) < 0){
-                temp.set(k, list.get(i));
+                //temp.set(k, list.get(i));
+                temp.add(k, list.get(i));
                 i++;
                 k++;
             }
             else{
-                temp.set(k, list.get(j));
+                //temp.set(k, list.get(j));
+                temp.add(k, list.get(j));
                 j++;
                 k++;
             }
         }
         while(i <= mid){
-            temp.set(k, list.get(i));
+            //temp.set(k, list.get(i));
+            temp.add(k, list.get(i));
             i++;
             k++;
         }
         while(j <= end){
-            temp.set(k, list.get(j));
+            //temp.set(k, list.get(j));
+            temp.add(k, list.get(i));
             j++;
             k++;
         }
 
-        for(int p = 0; i < temp.size(); p++){
-            list.set(p + start, temp.get(p));
+        for(int p = 0; i < temp.size() - 1; p++){
+            //list.set(p + start, temp.get(p));
+            list.add(p + start, temp.get(p));
         }
     }
 

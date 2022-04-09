@@ -28,7 +28,6 @@ public class BucketManager {
 //CALL ALL BUCKETS AND SORT
         for(int i = 0; i < SIZE; i++){
             buckets[i].sort();// FIXME: Stack Overflow
-            //buckets[i].mergeSort(buckets, 0 , 15);
         }
     }
 }
