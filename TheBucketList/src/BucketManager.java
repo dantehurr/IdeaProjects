@@ -2,7 +2,7 @@ public class BucketManager {
 
     BucketList[] buckets;
 
-    final int SIZE = 15;
+    final int SIZE = 26;
 
     public BucketManager(){
         buckets = new BucketList[SIZE];
@@ -27,7 +27,7 @@ public class BucketManager {
     public void sort(){
 //CALL ALL BUCKETS AND SORT
         for(int i = 0; i < SIZE; i++){
-            buckets[i].sort();// FIXME: Stack Overflow
+            buckets[i].sort();
         }
     }
 }
