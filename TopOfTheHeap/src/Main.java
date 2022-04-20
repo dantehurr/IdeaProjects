@@ -10,6 +10,9 @@
   Based on your implementation, what is the big O for purge() and why?:
     -
 */
+
+import java.util.PriorityQueue;
+
 class Main {
     public static void main(String[] args) {
         // These are just some examples, be sure to test everything!

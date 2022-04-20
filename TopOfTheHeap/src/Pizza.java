@@ -6,15 +6,17 @@
  */
 public class Pizza implements Comparable<Pizza>{
 
-    String type, myPizza;
-    int number;
+    public String desc, myPizza;
+    public int priority;
+    public Pizza next;
 
     Pizza(int priority, String desc){
 
-        this.type = desc;
-        this.number = priority;
+        this.desc = desc;
+        this.priority = priority;
 
         this.myPizza = priority + ": " + desc;
+
     }
 
     public int compareTo(Pizza aPizza){
@@ -24,7 +26,8 @@ public class Pizza implements Comparable<Pizza>{
 
     public String toString(){
 
-        return myPizza; //determines what prints
+        //return myPizza; //determines what prints
+        return "[" + priority + "] " + desc;
     }
 
 }

@@ -28,20 +28,91 @@ public Pizza[] purge()
  */
 public class PizzaQueue {
 
-    public void insert(Pizza p){
+    Pizza head;
 
+/*    int[] list;
+    int size = 0;
+
+    public PizzaQueue(int capacity){ // CLASS EXAMPLE
+        list = new int[capacity];
+    }*/
+
+    public PizzaQueue(){
+        head = null;
+    }
+
+/*    public void insert(int x){ // CLASS EXAMPLE
+        size++;
+        int hole = size;
+
+        while(true){
+            if(hole == 1){
+                break;
+            }
+            int parent = hole / 2;
+
+            if(x > list[parent]){ // MIN HEAP
+                break;
+            }
+            list[hole] = list[parent];
+            hole = parent;
+
+        }
+        list[hole] = x;
+    }*/
+
+    public void insert(Pizza p){
+        if(head == null){
+            head = p;
+            return;
+        }
+
+        if(p.priority > head.priority){ // Priority
+            p.next = head;
+            return;
+        }
+
+        Pizza current = head;
+
+        while(current.next != null){
+            if(p.priority > current.next.priority){ // Priority
+                p.next = current.next;
+                current.next = p;
+                return;
+            }
+            current = current.next;
+        }
+        current.next = p;
     }
 
     public Pizza delete(){
+        if(head == null){
+            return null;
+        }
+        Pizza result = head;
+        head = head.next;
 
+        return result;
     }
 
     public boolean isEmpty(){
-
+        if(head == null){
+            return true;
+        }
+        return false;
     }
 
     public void debug(){
+        if(head == null){
+            System.out.println("There are no current orders!");
+        }
 
+        Pizza current = head;
+
+        while(current.next != null){
+            System.out.println(current.myPizza);
+            current = current.next;
+        }
     }
 
     public void combine(PizzaQueue pq){
