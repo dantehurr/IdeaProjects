@@ -27,100 +27,112 @@ For instance, if there are 10 orders left, the size of this array should be 10. 
 public Pizza[] purge()
  */
 public class PizzaQueue {
-
-    Pizza head;
-
-/*    int[] list;
+    Pizza[] list;
     int size = 0;
 
-    public PizzaQueue(int capacity){ // CLASS EXAMPLE
-        list = new int[capacity];
-    }*/
-
-    public PizzaQueue(){
-        head = null;
+    public PizzaQueue() { // CLASS EXAMPLE
+        list = new Pizza[6];
     }
 
-/*    public void insert(int x){ // CLASS EXAMPLE
+
+    public void insert(Pizza p) { // CLASS EXAMPLE log(n)
         size++;
         int hole = size;
 
-        while(true){
-            if(hole == 1){
+        if(list.length == size){
+            int capacity = size + 5;
+            Pizza[] newList = new Pizza[capacity];
+
+            for(int i = 0; i < capacity; ++i){
+                newList[i] = list[i + 1];
+            }
+
+            Pizza[] list = new Pizza[capacity];
+
+            for(int i = 0; i < capacity; ++i){
+                list[i + 1] = newList[i];
+            }
+        }
+
+        while (true) {
+            if (hole == 1) {
                 break;
             }
             int parent = hole / 2;
 
-            if(x > list[parent]){ // MIN HEAP
+            if (p.compareTo(list[parent]) < 0) { // NEEDS TO BE MAX HEAP //FIXME >
                 break;
             }
             list[hole] = list[parent];
             hole = parent;
 
         }
-        list[hole] = x;
-    }*/
-
-    public void insert(Pizza p){
-        if(head == null){
-            head = p;
-            return;
-        }
-
-        if(p.priority > head.priority){ // Priority
-            p.next = head;
-            return;
-        }
-
-        Pizza current = head;
-
-        while(current.next != null){
-            if(p.priority > current.next.priority){ // Priority
-                p.next = current.next;
-                current.next = p;
-                return;
-            }
-            current = current.next;
-        }
-        current.next = p;
+        list[hole] = p;
     }
 
-    public Pizza delete(){
-        if(head == null){
-            return null;
-        }
-        Pizza result = head;
-        head = head.next;
-
-        return result;
-    }
-
-    public boolean isEmpty(){
-        if(head == null){
+    public boolean isEmpty() {
+        if (list.length <= size) {
             return true;
         }
         return false;
     }
 
-    public void debug(){
-        if(head == null){
-            System.out.println("There are no current orders!");
+    public Pizza delete() {
+        if (isEmpty()) {
+            return null;
         }
 
-        Pizza current = head;
+        Pizza result = list[1]; //FIXME
+        Pizza temp = list[size]; //FIXME
+        size--;
 
-        while(current.next != null){
-            System.out.println(current.myPizza);
-            current = current.next;
+        int hole = 1;
+
+        while (true) {
+            int child = hole * 2;
+            if (child > size) {
+                break;
+            }
+            if (child == size) {
+
+            }
+            else {
+                if (child != size) {
+                    if (list[child + 1].compareTo(list[child]) > 0) { //FIXME <
+                        child = child + 1;
+                    }
+                }
+                if (temp.compareTo(list[child]) > 0) { //FIXME <
+                    break;
+                }
+                else {
+                    list[hole] = list[child];
+                }
+                hole = child;
+            }
         }
+
+        list[hole] = temp;
+        return result;
     }
 
-    public void combine(PizzaQueue pq){
+        public void debug() {
+            if (isEmpty()) {
+                System.out.println("There are no current orders!");
+            }
+            for(int i = 1; i < size + 1; i++){
+                System.out.println((list[i].toString()));
+            }
+        }
 
-    }
+        public void combine(PizzaQueue pq){
 
-    public Pizza[] purge(){
+        }
 
-    }
+        public Pizza[] purge(){
+            Pizza[] purgeList = new Pizza[size];
+
+            return purgeList;
+        }
 
 }

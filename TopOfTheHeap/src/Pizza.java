@@ -8,20 +8,22 @@ public class Pizza implements Comparable<Pizza>{
 
     public String desc, myPizza;
     public int priority;
-    public Pizza next;
 
     Pizza(int priority, String desc){
 
         this.desc = desc;
         this.priority = priority;
 
-        this.myPizza = priority + ": " + desc;
+        //this.myPizza = priority + ": " + desc;
 
     }
 
     public int compareTo(Pizza aPizza){
 
-        return myPizza.compareTo(aPizza.myPizza);
+        if(this.priority < aPizza.priority){
+            return -1;
+        }
+        return 1;
     }
 
     public String toString(){
