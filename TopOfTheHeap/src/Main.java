@@ -34,7 +34,7 @@ class Main {
         System.out.println("Debugging......\n");
         paceEvent.debug();
         System.out.println("Combining......\n");
-        pq.combine(paceEvent);
+        //pq.combine(paceEvent);
         System.out.println("Purging......\n");
         Pizza[] finalList = pq.purge();
         for (Pizza p : finalList) {

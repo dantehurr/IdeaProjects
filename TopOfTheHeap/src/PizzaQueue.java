@@ -60,7 +60,7 @@ public class PizzaQueue {
             }
             int parent = hole / 2;
 
-            if (p.compareTo(list[parent]) < 0) { // NEEDS TO BE MAX HEAP //FIXME >
+            if (p.compareTo(list[parent]) < 0) { // NEEDS TO BE MAX HEAP
                 break;
             }
             list[hole] = list[parent];
@@ -82,8 +82,8 @@ public class PizzaQueue {
             return null;
         }
 
-        Pizza result = list[1]; //FIXME
-        Pizza temp = list[size]; //FIXME
+        Pizza result = list[1];
+        Pizza temp = list[size];
         size--;
 
         int hole = 1;
@@ -98,11 +98,11 @@ public class PizzaQueue {
             }
             else {
                 if (child != size) {
-                    if (list[child + 1].compareTo(list[child]) > 0) { //FIXME <
+                    if (list[child + 1].compareTo(list[child]) > 0) {
                         child = child + 1;
                     }
                 }
-                if (temp.compareTo(list[child]) > 0) { //FIXME <
+                if (temp.compareTo(list[child]) > 0) {
                     break;
                 }
                 else {
@@ -127,11 +127,22 @@ public class PizzaQueue {
 
         public void combine(PizzaQueue pq){
 
+            if (pq.isEmpty()){
+                System.out.println("empty.");
+            }
+
+            while(!pq.isEmpty()){
+                System.out.println(pq.delete()); // Just for testing purposes
+                this.insert(pq.delete()); // FIXME
+            }
         }
 
         public Pizza[] purge(){
             Pizza[] purgeList = new Pizza[size];
 
+            for(int i = 1; i > purgeList.length; i++){
+                purgeList[i] = this.delete(); // FIXME
+            }
             return purgeList;
         }
 
