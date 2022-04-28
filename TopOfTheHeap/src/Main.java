@@ -40,26 +40,3 @@ class Main {
             System.out.println(p);
         } }
 }
-/*
-If you run the above example, the output would look like the following:
---- DEBUG ---
-100: Super Duper Pizza
-25: Chicken Pizza
-10: Pepperoni Pizza
-5: Mushroom Pizza
-100: Super Duper Pizza
---- DEBUG ---
-25: Chicken Pizza
-5: Mushroom Pizza
-10: Pepperoni Pizza
---- DEBUG ---
-12: Sausage Pizza
-1: Plain Pizza
-3: Salad Pizza
-25: Chicken Pizza
-12: Sausage Pizza
-10: Pepperoni Pizza
-5: Mushroom Pizza
-3: Salad Pizza
-1: Plain Pizza
- */
