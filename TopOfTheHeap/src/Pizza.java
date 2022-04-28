@@ -6,15 +6,13 @@
  */
 public class Pizza implements Comparable<Pizza>{
 
-    public String desc, myPizza;
+    public String desc;
     public int priority;
 
     Pizza(int priority, String desc){
 
         this.desc = desc;
         this.priority = priority;
-
-        //this.myPizza = priority + ": " + desc;
 
     }
 
@@ -27,8 +25,6 @@ public class Pizza implements Comparable<Pizza>{
     }
 
     public String toString(){
-
-        //return myPizza; //determines what prints
         return "[" + priority + "] " + desc;
     }
 

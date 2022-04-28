@@ -30,12 +30,12 @@ public class PizzaQueue {
     Pizza[] list;
     int size = 0;
 
-    public PizzaQueue() { // CLASS EXAMPLE
+    public PizzaQueue() {
         list = new Pizza[6];
     }
 
 
-    public void insert(Pizza p) { // CLASS EXAMPLE log(n)
+    public void insert(Pizza p) {
         size++;
         int hole = size;
 
@@ -60,7 +60,7 @@ public class PizzaQueue {
             }
             int parent = hole / 2;
 
-            if (p.compareTo(list[parent]) < 0) { // NEEDS TO BE MAX HEAP
+            if (p.compareTo(list[parent]) < 0) {
                 break;
             }
             list[hole] = list[parent];
@@ -132,7 +132,6 @@ public class PizzaQueue {
             }
 
             while(!pq.isEmpty()){
-                System.out.println(pq.delete()); // Just for testing purposes
                 this.insert(pq.delete()); // FIXME
             }
         }
@@ -140,7 +139,7 @@ public class PizzaQueue {
         public Pizza[] purge(){
             Pizza[] purgeList = new Pizza[size];
 
-            for(int i = 1; i > purgeList.length; i++){
+            for(int i = 0; i < purgeList.length; i++){
                 purgeList[i] = this.delete(); // FIXME
             }
             return purgeList;

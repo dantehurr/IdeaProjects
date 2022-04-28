@@ -2,17 +2,16 @@
   Your Name:  Dante Hurr
   Pace Email: dh51481n@pace.edu
   Based on your implementation, what is the big O for the following methods: insert(): delete(): isEmpty():
-    *-
-    *-
-    *-
+    *- insert(): O(log n)
+    *- delete(): O(log n)
+    *- isEmpty(): O(1)
   Based on your implementation, what is the big O for combine() and why?:
-    -
+    - I did not finish combine, but the way I was writing it, it looks like O(n) because when the list is not empty,
+    it is just running and removing from one and into another.
   Based on your implementation, what is the big O for purge() and why?:
-    -
+    - I did not finish this either but it would have been O(n) because it is going through one list and adding to the
+    other simultaneously.
 */
-
-import java.util.PriorityQueue;
-
 class Main {
     public static void main(String[] args) {
         // These are just some examples, be sure to test everything!
@@ -34,7 +33,7 @@ class Main {
         System.out.println("Debugging......\n");
         paceEvent.debug();
         System.out.println("Combining......\n");
-        //pq.combine(paceEvent);
+        pq.combine(paceEvent);
         System.out.println("Purging......\n");
         Pizza[] finalList = pq.purge();
         for (Pizza p : finalList) {
