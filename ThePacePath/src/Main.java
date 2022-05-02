@@ -44,6 +44,7 @@ public class Main {
     }
 
     public static void path(Node start, Node end, int pathType){
+
         if(pathType == 0){
             distance(start, end);
         }
