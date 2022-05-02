@@ -5,6 +5,7 @@ public class Node implements Comparable<Node> {
     ArrayList<Edge> neighbors;
 
     int distance, time, money;
+    int comparable;
     Node prev;
 
     public Node(String name) {
@@ -13,6 +14,7 @@ public class Node implements Comparable<Node> {
         this.distance = Integer.MAX_VALUE;
         this.time = Integer.MAX_VALUE;
         this.money = Integer.MAX_VALUE;
+        this.comparable = Integer.MAX_VALUE;
         this.prev = null;
     }
 
@@ -26,7 +28,7 @@ public class Node implements Comparable<Node> {
         n.neighbors.add(new Edge(distance, time, money, this));
     }
 
-    public int compareTo(Node other) {
+/*    public int compareTo(Node other) {
 
         int i = Integer.compare(time, other.time);
         if (i != 0){
@@ -39,6 +41,21 @@ public class Node implements Comparable<Node> {
         }
 
         return Integer.compare(distance, other.distance);
+    }*/
+
+    public int compareTo(Node other) { // FIXME: possible case switch?
+
+        int i = Integer.compare(time, other.time);
+        if (i != 0){
+            return i;
+        }
+
+        i = Integer.compare(money, other.money);
+        if (i != 0){
+            return i;
+        }
+
+        return Integer.compare(comparable, other.comparable);
     }
 
 }

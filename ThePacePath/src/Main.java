@@ -42,6 +42,7 @@ public class Main {
         System.out.println("Money:");
         path(WS, TS, 2);
     }
+
     public static void path(Node start, Node end, int pathType){
         if(pathType == 0){
             distance(start, end);
@@ -56,7 +57,6 @@ public class Main {
             System.out.println("Path Type could not be determined.");
         }
     }
-
 
     public static void distance(Node start, Node end){
 
