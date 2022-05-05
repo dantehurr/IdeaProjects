@@ -5,7 +5,6 @@ public class Node implements Comparable<Node> {
     ArrayList<Edge> neighbors;
 
     int distance, time, money;
-    int pathType;
     Node prev;
 
     public Node(String name) {
@@ -14,52 +13,24 @@ public class Node implements Comparable<Node> {
         this.distance = Integer.MAX_VALUE;
         this.time = Integer.MAX_VALUE;
         this.money = Integer.MAX_VALUE;
-        //this.pathType = Integer.MAX_VALUE;
         this.prev = null;
     }
-
-    /*public void addNeighbor(int distance, Node n) {
-        neighbors.add(new Edge(distance, n));
-        n.neighbors.add(new Edge(distance, this));
-    }*/
 
     public void addNeighbor(int distance, int time, int money, Node n) {
         neighbors.add(new Edge(distance, time, money, n));
         n.neighbors.add(new Edge(distance, time, money, this));
     }
 
-    public int getPathType() {
+    public int compareTo(Node other) {
 
-        this.pathType = Integer.MAX_VALUE;
-
-        return pathType;
-    }
-
-/*    public int compareTo(Node other) {
-
-        int i = Integer.compare(time, other.time);
-        if (i != 0){
-            return i;
+        int pathType = Integer.compare(time, other.time);
+        if (pathType != 0){
+            return pathType;
         }
 
-        i = Integer.compare(money, other.money);
-        if (i != 0){
-            return i;
-        }
-
-        return Integer.compare(distance, other.distance);
-    }*/
-
-    public int compareTo(Node other) { // FIXME: possible case switch?
-
-        if(pathType == 0){
-            return Integer.compare(distance, other.distance);
-        }
-        else if(pathType == 1){
-            return Integer.compare(time, other.time);
-        }
-        else if(pathType == 2){
-            return Integer.compare(money, other.money);
+        pathType = Integer.compare(money, other.money);
+        if (pathType != 0){
+            return pathType;
         }
 
         return Integer.compare(distance, other.distance);
