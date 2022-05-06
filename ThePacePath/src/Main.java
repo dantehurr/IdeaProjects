@@ -34,13 +34,13 @@ public class Main {
         BB.addNeighbor(1,2,1, WS);
 
         System.out.println("Distance:");
-        path(WS, TS, 0);
+        path(MONH, WS, 0);
         System.out.println("--------------------------");
         System.out.println("Speed:");
-        path(WS, TS, 1);
+        path(MONH, WS, 1);
         System.out.println("--------------------------");
         System.out.println("Money:");
-        path(WS, TS, 2);
+        path(MONH, WS, 2);
     }
 
     public static void path(Node start, Node end, int pathType){
@@ -64,6 +64,8 @@ public class Main {
         PriorityQueue<Node> dis = new PriorityQueue<Node>();
 
         start.distance = 0;
+        start.pathType = 0;
+        end.pathType = 0;
         dis.add(start);
 
         // While nodes to explore
@@ -95,6 +97,8 @@ public class Main {
         PriorityQueue<Node> spd = new PriorityQueue<Node>();
 
         start.time = 0;
+        start.pathType = 1;
+        end.pathType = 1;
         spd.add(start);
 
         // While nodes to explore
@@ -126,6 +130,8 @@ public class Main {
         PriorityQueue<Node> mny = new PriorityQueue<Node>();
 
         start.money = 0;
+        start.pathType = 2;
+        end.pathType = 2;
         mny.add(start);
 
         // While nodes to explore
